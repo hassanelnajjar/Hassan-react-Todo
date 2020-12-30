@@ -1,0 +1,103 @@
+.header-nav-bar {
+	width: 100%;
+	background-color: #fff;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 5rem;
+	box-shadow: 4px 0px 4px black;
+}
+
+.header-user-name {
+	width: fit-content;
+	text-transform: capitalize;
+	font-style: italic;
+	font-weight: 600;
+	padding: 1rem 2rem;
+	font-size: 20px;
+	position: relative;
+}
+
+.header-search-div {
+	width: 40%;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.header-search-input {
+	background-color: rgb(241, 243, 244);
+	width: 100%;
+	line-height: 3;
+	font-size: 20px;
+	outline: none;
+	border-radius: 0.75rem;
+	border: none;
+	padding-left: 2.5rem;
+	position: relaive;
+}
+
+.header-search-input:hover {
+	background-color: #fff;
+	box-shadow: 4px 4px 4px rgb(241, 243, 244), -4px -4px 4px rgb(241, 243, 244);
+}
+.header-options {
+	width: 10%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.header-change-theme-button,
+.header-change-display-button {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 20px;
+	position: relative;
+}
+
+.header-change-theme-button::before {
+	content: 'Change Theme';
+	background-color: rgb(241, 243, 244);
+	width: fit-content;
+	letter-spacing: normal;
+	height: auto;
+	position: absolute;
+	display: none;
+	padding: 1rem;
+	border-radius: 1rem;
+	bottom: -300%;
+	left: -50%;
+	font-size: 14px;
+}
+
+.header-change-theme-button:hover::before {
+	display: block;
+}
+
+.header-change-display-button::before {
+	content: 'Change Display';
+	background-color: rgb(241, 243, 244);
+	width: fit-content;
+	letter-spacing: normal;
+	height: auto;
+	position: absolute;
+	display: none;
+	padding: 1rem;
+	border-radius: 1rem;
+	bottom: -300%;
+	left: -50%;
+	font-size: 14px;
+}
+
+.header-change-display-button:hover::before {
+	display: block;
+}
+
+.header-search-div .fa-search {
+	position: absolute;
+	top: 35%;
+	left: 2%;
+	z-index: 100;
+	color: gray;
+}
