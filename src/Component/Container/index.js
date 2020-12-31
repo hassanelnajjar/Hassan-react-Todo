@@ -17,15 +17,16 @@ export default function Container(props) {
 							<List
 								key={list.id}
 								listName={list.name}
-								tasks={list.tasks.sort((a, b) => a.id - b.id)}
+								tasks={list.tasks.sort((a, b) => b.id - a.id)}
 								listId={list.id}
 								methods={methods}
 							/>
 						)
 				)}
 			</div>
+
 			<div className='Container-Buttons'>
-				<AddButton />
+				<AddButton handleAddList={methods.handleAddList} />
 				<AddButton />
 			</div>
 		</div>

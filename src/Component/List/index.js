@@ -41,16 +41,14 @@ export default function List(props) {
 				</button>
 			</div>
 			<div className='List-Tasks-Container'>
-				<AddTask
-					handleInputTask={() => console.log('edit')}
-					taskText={'Add Task'}
-				/>
+				<AddTask listId={listId} methods={methods} taskText={'Add Task'} />
 				{tasks.map((task) => (
 					<Task
 						key={task.id}
 						taskText={task.text}
 						taskId={task.id}
 						listId={listId}
+						isCompleted={task.completed}
 						methods={methods}
 					/>
 				))}

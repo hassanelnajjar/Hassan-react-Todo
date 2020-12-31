@@ -20,6 +20,22 @@
 	padding-left: 2rem;
 }
 
+.Text-input-Completed {
+	text-decoration: line-through;
+}
+.Task-circle-button-completed {
+	cursor: pointer;
+	top: 10%;
+	left: 2%;
+	position: absolute;
+	height: 12px;
+	width: 12px;
+	background-color: rgba(0, 0, 0, 0.534);
+	border: 2px solid rgb(117, 112, 112);
+	border-radius: 50%;
+	clip-path: circle(50% at 50% 50%);
+}
+
 .Task-text-input-div {
 	position: relative;
 	width: 100%;

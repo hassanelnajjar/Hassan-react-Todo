@@ -92,13 +92,108 @@ export default class App extends Component {
 			],
 		}));
 	};
+
+	handleCompleted = (taskId, listId) => {
+		this.setState((prevState) => ({
+			...prevState,
+			lists: [
+				...prevState.lists.filter((list) => list.id !== listId),
+				{
+					...prevState.lists.filter((list) => list.id === listId)[0],
+					tasks: [
+						...prevState.lists
+							.filter((list) => list.id === listId)[0]
+							.tasks.filter((task) => task.id !== taskId),
+						{
+							...prevState.lists
+								.filter((list) => list.id === listId)[0]
+								.tasks.filter((task) => task.id === taskId)[0],
+							completed: true,
+						},
+					],
+				},
+			],
+		}));
+	};
+	handleUnCompleted = (taskId, listId) => {
+		this.setState((prevState) => ({
+			...prevState,
+			lists: [
+				...prevState.lists.filter((list) => list.id !== listId),
+				{
+					...prevState.lists.filter((list) => list.id === listId)[0],
+					tasks: [
+						...prevState.lists
+							.filter((list) => list.id === listId)[0]
+							.tasks.filter((task) => task.id !== taskId),
+						{
+							...prevState.lists
+								.filter((list) => list.id === listId)[0]
+								.tasks.filter((task) => task.id === taskId)[0],
+							completed: false,
+						},
+					],
+				},
+			],
+		}));
+	};
+
+	handleAddTask = (listId, event) => {
+		if (event.key !== 'Enter') return;
+		const {
+			target: { value },
+		} = event;
+		this.setState((prevState) => {
+			const currentList = prevState.lists.filter(
+				(list) => list.id === listId
+			)[0];
+			const currentMaxId = currentList.tasks.reduce(
+				(total, task) => (total > task.id ? total : task.id),
+				-Infinity
+			);
+			const newTask = {
+				id: currentMaxId + 1,
+				completed: false,
+				date: '31-12-2020',
+				text: value,
+			};
+			const newList = {
+				...currentList,
+				tasks: [...currentList.tasks, newTask],
+			};
+			return {
+				...prevState,
+				lists: [
+					...prevState.lists.filter((list) => list.id !== listId),
+					newList,
+				],
+			};
+		});
+	};
+
+	handleAddList = () => {
+		this.setState((prevState) => {
+			const currentMaxId = prevState.lists.reduce(
+				(total, task) => (total > task.id ? total : task.id),
+				-Infinity
+			);
+			const newList = {
+				id: currentMaxId + 1,
+				name: `listname${currentMaxId + 1}`,
+				task: [],
+				color: 'listColor',
+			};
+			return {
+				lists: [...prevState.lists, newList],
+			};
+		});
+	};
 	render() {
 		return (
 			<>
 				<Header
 					methods={{
 						handleSearch: this.handleSearch,
-						handleChangeTheme: this.handleChangeTheme,
 						handleChangeDisplay: this.handleChangeDisplay,
 					}}
 				/>
@@ -110,6 +205,10 @@ export default class App extends Component {
 							handleInputTask: this.handleInputTask,
 							handleDeleteList: this.handleDeleteList,
 							handleListNameUpdate: this.handleListNameUpdate,
+							handleCompleted: this.handleCompleted,
+							handleUnCompleted: this.handleUnCompleted,
+							handleAddTask: this.handleAddTask,
+							handleAddList: this.handleAddList,
 						}}
 						styles={this.state.display}
 					/>
