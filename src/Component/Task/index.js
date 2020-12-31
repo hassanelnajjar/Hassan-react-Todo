@@ -6,16 +6,19 @@ export default function Task(props) {
 		handleEditTask,
 		handleCompleted,
 		handleInputTask,
+		taskText,
 	} = props;
 	return (
 		<div className='Task-div'>
 			<div className='Task-text-input-div'>
-				<button class='Task-circle-button' onClick={handleCompleted}></button>
+				<button
+					className='Task-circle-button'
+					onClick={handleCompleted}
+				></button>
 				<input
 					className='Task-text-input'
 					type='text'
-					name=''
-					id=''
+					value={taskText}
 					onClick={handleInputTask}
 				/>
 			</div>

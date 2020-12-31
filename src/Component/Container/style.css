@@ -1,0 +1,23 @@
+.Container-Div {
+	margin: 1rem;
+	width: 100%;
+	min-height: 100%;
+	display: flex;
+}
+
+.Container-Lists {
+	margin: 1rem;
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 20px;
+}
+
+.Container-Buttons {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 200px;
+}

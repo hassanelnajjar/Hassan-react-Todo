@@ -12,7 +12,7 @@ export default function EditTask(props) {
 					<i className='far fa-trash-alt'></i>
 				</button>
 				<button className='EditTask-Close-Button'>
-					<i class='far fa-times-circle'></i>
+					<i className='far fa-times-circle'></i>
 				</button>
 			</div>
 			<form className='EditTask-form'>

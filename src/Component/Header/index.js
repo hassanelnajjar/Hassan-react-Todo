@@ -7,14 +7,14 @@ export default function Header(props) {
 			<nav className='header-nav-bar'>
 				<div className='header-user-name'>Hassan</div>
 				<div className='header-search-div'>
-					<i class='fas fa-search'></i>
+					<i className='fas fa-search'></i>
 					<input
 						className='header-search-input'
 						type='search'
 						name='search'
 						id='search'
 						placeholder='Search'
-						onChange={handleSearch}
+						// onChange={handleSearch}
 					/>
 				</div>
 				<div className='header-options'>

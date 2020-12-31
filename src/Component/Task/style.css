@@ -8,6 +8,9 @@
 	justify-content: space-around;
 	align-items: center;
 }
+.Task-div:hover {
+	background-color: var(--main-gray-color);
+}
 
 .Task-text-input {
 	background-color: transparent;

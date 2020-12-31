@@ -3,7 +3,7 @@ import data from './Utils/data';
 import './App.css';
 import Header from './Component/Header';
 
-import List from './Component/List';
+import Container from './Component/Container';
 export default class App extends Component {
 	state = data;
 	handleSearch = () => {};
@@ -13,12 +13,12 @@ export default class App extends Component {
 	render() {
 		return (
 			<>
-				{/* <Header
+				<Header
 					handleSearch={this.handleSearch}
 					handleChangeTheme={this.handleChangeTheme}
 					handleChangeDisplay={this.handleChangeDisplay}
-				/> */}
-				<List />
+				/>
+				<Container lists={this.state.lists} />
 			</>
 		);
 	}
