@@ -10,7 +10,7 @@ export default function List(props) {
 		tasks,
 		methods: { handleDeleteList, handleListNameUpdate, ...methods },
 	} = props;
-	// onClick on list-add-task-button-div just change display to none
+	console.log('render List');
 	return (
 		<div className='List-div'>
 			<div className='List-header'>

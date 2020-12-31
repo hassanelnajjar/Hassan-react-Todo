@@ -197,6 +197,7 @@ export default class App extends Component {
 						handleChangeDisplay: this.handleChangeDisplay,
 					}}
 				/>
+				{console.log(this.state.lists)}
 				{this.state.lists.length && (
 					<Container
 						lists={this.state.lists.sort((a, b) => a.id - b.id)}

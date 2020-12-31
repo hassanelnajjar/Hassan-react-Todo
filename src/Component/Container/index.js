@@ -27,7 +27,6 @@ export default function Container(props) {
 
 			<div className='Container-Buttons'>
 				<AddButton handleAddList={methods.handleAddList} />
-				<AddButton />
 			</div>
 		</div>
 	);
