@@ -2,11 +2,12 @@ import React from 'react';
 import './style.css';
 export default function Task(props) {
 	const {
-		handleDeleteTask,
 		handleEditTask,
 		handleCompleted,
-		handleInputTask,
 		taskText,
+		taskId,
+		listId,
+		methods: { handleDeleteTask, handleInputTask },
 	} = props;
 	return (
 		<div className='Task-div'>
@@ -19,14 +20,17 @@ export default function Task(props) {
 					className='Task-text-input'
 					type='text'
 					value={taskText}
-					onClick={handleInputTask}
+					onChange={(e) => handleInputTask(taskId, listId, e)}
 				/>
 			</div>
 
 			<button className='Task-edit-button' onClick={handleEditTask}>
 				<i className='fas fa-pencil-alt'></i>
 			</button>
-			<button className='Task-delete-button' onClick={handleDeleteTask}>
+			<button
+				className='Task-delete-button'
+				onClick={(e) => handleDeleteTask(taskId, listId, e)}
+			>
 				<i className='far fa-trash-alt'></i>
 			</button>
 		</div>

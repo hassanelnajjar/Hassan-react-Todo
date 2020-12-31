@@ -3,14 +3,26 @@ import './style.css';
 import List from '../List';
 import AddButton from '../AddButton';
 export default function Container(props) {
-	const { lists } = props;
+	const { lists, methods, styles } = props;
 	return (
 		<div className='Container-Div'>
-			<div className='Container-Lists'>
-				{' '}
-				{lists.map((list) => (
-					<List key={list.id} listName={list.name} tasks={list.tasks} />
-				))}
+			<div
+				className={
+					styles ? 'Container-Lists' : 'Container-Lists Container-Lists-Column'
+				}
+			>
+				{lists.map(
+					(list) =>
+						list.tasks && (
+							<List
+								key={list.id}
+								listName={list.name}
+								tasks={list.tasks.sort((a, b) => a.id - b.id)}
+								listId={list.id}
+								methods={methods}
+							/>
+						)
+				)}
 			</div>
 			<div className='Container-Buttons'>
 				<AddButton />

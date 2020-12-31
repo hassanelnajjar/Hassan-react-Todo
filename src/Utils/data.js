@@ -1,5 +1,5 @@
 const data = {
-	display: 'vertical',
+	display: true,
 	theme: 'dark',
 	lists: [
 		{

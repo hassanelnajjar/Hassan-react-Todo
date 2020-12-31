@@ -1,5 +1,6 @@
 import React from 'react';
 import Task from '../Task';
+import AddTask from '../AddTask';
 import './style.css';
 export default function List(props) {
 	const {
@@ -7,7 +8,9 @@ export default function List(props) {
 		handleDeleteList,
 		handleChangeListColor,
 		listName,
+		listId,
 		tasks,
+		methods,
 	} = props;
 	// onClick on list-add-task-button-div just change display to none
 	return (
@@ -38,8 +41,18 @@ export default function List(props) {
 				</button>
 			</div>
 			<div className='List-Tasks-Container'>
+				<AddTask
+					handleInputTask={() => console.log('edit')}
+					taskText={'Add Task'}
+				/>
 				{tasks.map((task) => (
-					<Task key={task.id} taskText={task.text} />
+					<Task
+						key={task.id}
+						taskText={task.text}
+						taskId={task.id}
+						listId={listId}
+						methods={methods}
+					/>
 				))}
 			</div>
 		</div>
