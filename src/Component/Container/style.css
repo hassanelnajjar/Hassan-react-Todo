@@ -10,11 +10,13 @@
 .Container-Lists {
 	margin: 1rem;
 	width: 90%;
+	height: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: flex-start;
 	gap: 20px;
+	flex-wrap: wrap;
 }
 
 .Container-Lists-Column {
