@@ -21,8 +21,8 @@
 	position: relative;
 	width: 100%;
 }
-.Task-circle {
-	content: '';
+.Task-circle-button {
+	cursor: pointer;
 	top: 10%;
 	left: 2%;
 	position: absolute;
@@ -33,7 +33,7 @@
 	width: 12px;
 	clip-path: circle(50% at 50% 50%);
 }
-.Task-circle:hover {
+.Task-circle-button:hover {
 	background-color: rgba(0, 0, 0, 0.534);
 	border: 2px solid rgb(117, 112, 112);
 	border-radius: 50%;
