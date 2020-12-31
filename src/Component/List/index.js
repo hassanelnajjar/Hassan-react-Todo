@@ -5,12 +5,11 @@ import './style.css';
 export default function List(props) {
 	const {
 		handleAddList,
-		handleDeleteList,
 		handleChangeListColor,
 		listName,
 		listId,
 		tasks,
-		methods,
+		methods: { handleDeleteList, handleListNameUpdate, ...methods },
 	} = props;
 	// onClick on list-add-task-button-div just change display to none
 	return (
@@ -27,8 +26,7 @@ export default function List(props) {
 					className='List-TaskName-input'
 					type='text'
 					value={listName}
-					onChange={handleAddList}
-					// placeholder='new task'
+					onChange={(e) => handleListNameUpdate(listId, e)}
 				/>
 				<button
 					className='List-Change-Color-Button'
@@ -36,7 +34,10 @@ export default function List(props) {
 				>
 					<i className='fas fa-paint-brush'></i>
 				</button>
-				<button className='List-Delete-Button' onClick={handleDeleteList}>
+				<button
+					className='List-Delete-Button'
+					onClick={(e) => handleDeleteList(listId, e)}
+				>
 					<i className='far fa-trash-alt'></i>
 				</button>
 			</div>

@@ -6,6 +6,20 @@ import Container from './Component/Container';
 export default class App extends Component {
 	state = data;
 
+	handleListNameUpdate = (listId, event) => {
+		const {
+			target: { value },
+		} = event;
+		return this.setState((prevState) => ({
+			lists: [
+				...prevState.lists.filter((list) => list.id !== listId),
+				{
+					...prevState.lists.filter((list) => list.id === listId)[0],
+					name: value,
+				},
+			],
+		}));
+	};
 	handleSearch = (event) => {
 		const {
 			target: { value },
@@ -27,8 +41,11 @@ export default class App extends Component {
 			return value === '' ? data : foundTasks; // edit in local storage or database
 		});
 	};
-
-	// handleChangeTheme = () => {};
+	handleDeleteList = (listId) => {
+		this.setState((prevState) => ({
+			lists: prevState.lists.filter((list) => list.id !== listId),
+		}));
+	};
 	handleInputTask = (taskId, listId, e) => {
 		const {
 			target: { value },
@@ -91,6 +108,8 @@ export default class App extends Component {
 						methods={{
 							handleDeleteTask: this.handleDeleteTask,
 							handleInputTask: this.handleInputTask,
+							handleDeleteList: this.handleDeleteList,
+							handleListNameUpdate: this.handleListNameUpdate,
 						}}
 						styles={this.state.display}
 					/>
