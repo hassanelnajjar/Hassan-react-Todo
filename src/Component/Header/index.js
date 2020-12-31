@@ -22,13 +22,13 @@ export default function Header(props) {
 						onClick={handleChangeDisplay}
 						className='header-change-display-button'
 					>
-						<i class='fas fa-bars'></i>
+						<i className='fas fa-bars'></i>
 					</button>
 					<button
 						onChange={handleChangeTheme}
 						className='header-change-theme-button'
 					>
-						<i class='fas fa-moon'></i>
+						<i className='fas fa-moon'></i>
 					</button>
 				</div>
 			</nav>

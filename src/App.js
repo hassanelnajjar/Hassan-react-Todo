@@ -11,11 +11,13 @@ export default class App extends Component {
 
 	render() {
 		return (
-			<Header
-				handleSearch={this.handleSearch}
-				handleChangeTheme={this.handleChangeTheme}
-				handleChangeDisplay={this.handleChangeDisplay}
-			/>
+			<>
+				<Header
+					handleSearch={this.handleSearch}
+					handleChangeTheme={this.handleChangeTheme}
+					handleChangeDisplay={this.handleChangeDisplay}
+				/>
+			</>
 		);
 	}
 }
