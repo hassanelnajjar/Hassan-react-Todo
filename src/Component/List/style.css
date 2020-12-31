@@ -1,15 +1,16 @@
 .List-div {
+	padding: 0.5rem;
 	border-radius: 1rem;
-	border: 1px solid black;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
+	background-color: white;
 	width: 25%;
-	min-height: 200px;
-	box-shadow: 2px 0 5px black, 0px 2px 5px black, -2px 0px 5px black,
-		0px -2px 5px black;
+	box-shadow: 2px 0 5px rgb(0, 0, 0, 0.2), 0px 2px 5px rgb(0, 0, 0, 0.2),
+		-2px 0px 5px rgb(0, 0, 0, 0.2), 0px -2px 5px rgb(0, 0, 0, 0.2);
 }
+
 .List-header {
 	width: 100%;
 	margin: 1rem 0;
@@ -27,6 +28,7 @@
 	position: absolute;
 	left: 10%;
 	z-index: 99;
+	visibility: hidden;
 }
 
 .List-AddTask-Button-Div:hover {

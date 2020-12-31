@@ -6,7 +6,8 @@ export default function List(props) {
 		handleAddList,
 		handleDeleteList,
 		handleChangeListColor,
-		...TaskProps
+		listName,
+		tasks,
 	} = props;
 	// onClick on list-add-task-button-div just change display to none
 	return (
@@ -14,7 +15,7 @@ export default function List(props) {
 			<div className='List-header'>
 				<div className='List-AddTask-Button-Div'>
 					<span className='List-plus-symbol'>
-						<i class='fas fa-plus'></i>
+						<i className='fas fa-plus'></i>
 					</span>
 					<button className='List-AddTask-button'>Add a task</button>
 				</div>
@@ -22,8 +23,7 @@ export default function List(props) {
 				<input
 					className='List-TaskName-input'
 					type='text'
-					name=''
-					id=''
+					value={listName}
 					onChange={handleAddList}
 					// placeholder='new task'
 				/>
@@ -31,14 +31,16 @@ export default function List(props) {
 					className='List-Change-Color-Button'
 					onClick={handleChangeListColor}
 				>
-					<i class='fas fa-paint-brush'></i>
+					<i className='fas fa-paint-brush'></i>
 				</button>
 				<button className='List-Delete-Button' onClick={handleDeleteList}>
 					<i className='far fa-trash-alt'></i>
 				</button>
 			</div>
 			<div className='List-Tasks-Container'>
-				<Task {...TaskProps} /> {/*Loop :) */}
+				{tasks.map((task) => (
+					<Task key={task.id} taskText={task.text} />
+				))}
 			</div>
 		</div>
 	);
