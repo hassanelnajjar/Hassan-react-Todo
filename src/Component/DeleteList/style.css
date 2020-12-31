@@ -1,0 +1,38 @@
+.DeleteList-Div {
+	padding: 0.5rem;
+	margin: 50px;
+	border-radius: 1rem;
+	width: 200px;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 2px 0px 2px black, 0px 2px 2px black, 0px -2px 2px black,
+		-2px 0px 2px black;
+}
+
+.DeleteList-AlertText-Div {
+	text-align: center;
+	width: 100%;
+}
+
+.DeleteList-Buttons {
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
+}
+.DeleteList-Delete-Button,
+.DeleteList-Cancel-Button {
+	outline: none;
+	border: none;
+	cursor: pointer;
+	margin-bottom: 1rem;
+	border-radius: 1rem;
+	padding: 0.5rem;
+	font-weight: 400;
+}
+
+.DeleteList-Delete-Button {
+	background-color: rgba(231, 131, 131, 0.589);
+}
