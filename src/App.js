@@ -183,7 +183,7 @@ export default class App extends Component {
 			const newList = {
 				id: currentMaxId + 1,
 				name: `listname${currentMaxId + 1}`,
-				task: [],
+				tasks: [],
 				color: 'listColor',
 			};
 			return {
@@ -200,7 +200,6 @@ export default class App extends Component {
 						handleChangeDisplay: this.handleChangeDisplay,
 					}}
 				/>
-				{console.log(this.state.lists)}
 				{this.state.lists.length && (
 					<Container
 						lists={this.state.lists.sort((a, b) => a.id - b.id)}

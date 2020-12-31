@@ -10,7 +10,6 @@ export default function List(props) {
 		tasks,
 		methods: { handleDeleteList, handleListNameUpdate, ...methods },
 	} = props;
-	console.log('render List');
 	return (
 		<div className='List-div'>
 			<div className='List-header'>
