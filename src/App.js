@@ -10,6 +10,7 @@ export default class App extends Component {
 		const {
 			target: { value },
 		} = event;
+		if (value.trim() === '') return;
 		return this.setState((prevState) => ({
 			lists: [
 				...prevState.lists.filter((list) => list.id !== listId),
@@ -50,6 +51,7 @@ export default class App extends Component {
 		const {
 			target: { value },
 		} = e;
+		if (value.trim() === '') return;
 		e.preventDefault();
 		this.setState((prevState) => ({
 			...prevState,
@@ -143,6 +145,7 @@ export default class App extends Component {
 		const {
 			target: { value },
 		} = event;
+		if (value.trim() === '') return;
 		this.setState((prevState) => {
 			const currentList = prevState.lists.filter(
 				(list) => list.id === listId
