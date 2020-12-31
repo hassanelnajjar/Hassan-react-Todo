@@ -1,0 +1,64 @@
+.Task-div {
+	border-radius: 1rem;
+	padding: 0.5rem;
+	background-color: white;
+	width: 100%;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.Task-text-input {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	width: 100%;
+	padding-left: 2rem;
+}
+
+.Task-text-input-div {
+	position: relative;
+	width: 100%;
+}
+.Task-circle-button {
+	cursor: pointer;
+	top: 10%;
+	left: 2%;
+	position: absolute;
+	background-color: transparent;
+	border: 2px solid black;
+	border-radius: 50%;
+	height: 12px;
+	width: 12px;
+	clip-path: circle(50% at 50% 50%);
+}
+.Task-circle-button:hover {
+	background-color: rgba(0, 0, 0, 0.534);
+	border: 2px solid rgb(117, 112, 112);
+	border-radius: 50%;
+	height: 12px;
+	width: 12px;
+	clip-path: circle(50% at 50% 50%);
+}
+
+.Task-edit-button,
+.Task-delete-button {
+	margin-left: 0.5rem;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 12px;
+	position: relative;
+	transition: color 1s;
+	color: rgb(117, 112, 112);
+}
+
+.Task-edit-button:hover {
+	color: rgba(166, 255, 0, 0.9);
+}
+
+.Task-delete-button:hover {
+	color: rgb(255, 0, 0, 0.9);
+}
