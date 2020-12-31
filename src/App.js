@@ -3,7 +3,7 @@ import data from './Utils/data';
 import './App.css';
 import Header from './Component/Header';
 
-import EditTask from './Component/EditTask';
+import List from './Component/List';
 export default class App extends Component {
 	state = data;
 	handleSearch = () => {};
@@ -18,7 +18,7 @@ export default class App extends Component {
 					handleChangeTheme={this.handleChangeTheme}
 					handleChangeDisplay={this.handleChangeDisplay}
 				/> */}
-				<EditTask></EditTask>
+				<List />
 			</>
 		);
 	}
