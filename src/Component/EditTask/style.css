@@ -1,0 +1,119 @@
+.EditTask-div {
+	margin: 50px;
+	border-radius: 1rem;
+	width: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 5px 0px 5px black, 0px 5px 5px black, 0px -5px 5px black,
+		-5px 0px 5px black;
+}
+
+.EditTask-form {
+	width: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.EditTask-Buttons-div {
+	padding: 0.5rem;
+	width: 90%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.EditTask-Delete-Button {
+	outline: none;
+	border: none;
+	background-color: transparent;
+	color: red;
+	cursor: pointer;
+	position: relative;
+}
+.EditTask-Close-Button {
+	outline: none;
+	border: none;
+	background-color: transparent;
+	color: red;
+	cursor: pointer;
+	position: relative;
+}
+
+.EditTask-Close-Button::before {
+	content: 'Close';
+	top: -350%;
+	left: -150%;
+	background-color: rgb(128, 128, 128, 0.8);
+	border-radius: 1rem;
+	color: white;
+	position: absolute;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 0.5s linear;
+	padding: 1rem;
+}
+
+.EditTask-Close-Button:hover::before {
+	visibility: visible;
+	opacity: 1;
+}
+
+.EditTask-Delete-Button::before {
+	white-space: nowrap;
+	content: 'Delete Task';
+	top: -350%;
+	left: -400%;
+	background-color: rgb(128, 128, 128, 0.8);
+	border-radius: 1rem;
+	color: white;
+	position: absolute;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 0.5s linear;
+	padding: 1rem;
+}
+
+.EditTask-Delete-Button:hover::before {
+	visibility: visible;
+	opacity: 1;
+}
+
+.EditTask-Label {
+	width: 90%;
+	font-style: bold;
+	padding-bottom: 1rem;
+}
+.EditTask-TaskDetails {
+	outline: none;
+	resize: vertical;
+	width: 100%;
+}
+
+.EditTask-submit {
+	outline: none;
+	background-color: rgb(128, 128, 128, 0.5);
+	border: none;
+	cursor: pointer;
+	margin-bottom: 1rem;
+	border-radius: 1rem;
+	padding: 0.5rem;
+	font-weight: 400;
+	transition: background-color 1s;
+}
+
+.EditTask-submit:hover {
+	background-color: rgb(128, 128, 128, 1);
+}
+
+.EditTask-TaskText {
+	outline: none;
+}
+
+.EditTask-TaskDate {
+	outline: none;
+	width: 100%;
+}
