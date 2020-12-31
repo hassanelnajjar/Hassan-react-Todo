@@ -6,21 +6,23 @@ export default function Container(props) {
 	const { lists, methods, styles } = props;
 	return (
 		<div className='Container-Div'>
-			{console.log(styles)}
 			<div
 				className={
 					styles ? 'Container-Lists' : 'Container-Lists Container-Lists-Column'
 				}
 			>
-				{lists.map((list) => (
-					<List
-						key={list.id}
-						listName={list.name}
-						tasks={list.tasks}
-						listId={list.id}
-						methods={methods}
-					/>
-				))}
+				{lists.map(
+					(list) =>
+						list.tasks && (
+							<List
+								key={list.id}
+								listName={list.name}
+								tasks={list.tasks.sort((a, b) => a.id - b.id)}
+								listId={list.id}
+								methods={methods}
+							/>
+						)
+				)}
 			</div>
 			<div className='Container-Buttons'>
 				<AddButton />

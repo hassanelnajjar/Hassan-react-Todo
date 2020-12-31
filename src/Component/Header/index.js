@@ -1,7 +1,9 @@
 import React from 'react';
 import './style.css';
 export default function Header(props) {
-	const { handleSearch, handleChangeTheme, handleChangeDisplay } = props;
+	const {
+		methods: { handleSearch, handleChangeTheme, handleChangeDisplay },
+	} = props;
 	return (
 		<>
 			<nav className='header-nav-bar'>
@@ -14,7 +16,7 @@ export default function Header(props) {
 						name='search'
 						id='search'
 						placeholder='Search'
-						// onChange={handleSearch}
+						onChange={handleSearch}
 					/>
 				</div>
 				<div className='header-options'>

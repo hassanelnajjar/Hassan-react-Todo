@@ -4,11 +4,10 @@ export default function Task(props) {
 	const {
 		handleEditTask,
 		handleCompleted,
-		handleInputTask,
 		taskText,
 		taskId,
 		listId,
-		methods: { handleDeleteTask },
+		methods: { handleDeleteTask, handleInputTask },
 	} = props;
 	return (
 		<div className='Task-div'>
@@ -21,7 +20,7 @@ export default function Task(props) {
 					className='Task-text-input'
 					type='text'
 					value={taskText}
-					onClick={handleInputTask}
+					onChange={(e) => handleInputTask(taskId, listId, e)}
 				/>
 			</div>
 
@@ -30,10 +29,7 @@ export default function Task(props) {
 			</button>
 			<button
 				className='Task-delete-button'
-				onClick={(e) => {
-					console.log({ taskId }, { listId });
-					return handleDeleteTask(taskId, listId, e);
-				}}
+				onClick={(e) => handleDeleteTask(taskId, listId, e)}
 			>
 				<i className='far fa-trash-alt'></i>
 			</button>
