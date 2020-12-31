@@ -4,7 +4,6 @@ import AddTask from '../AddTask';
 import './style.css';
 export default function List(props) {
 	const {
-		handleAddList,
 		handleChangeListColor,
 		listName,
 		listId,
