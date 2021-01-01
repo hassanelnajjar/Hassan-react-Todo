@@ -12,6 +12,10 @@
 		-2px 0px 5px rgb(0, 0, 0, 0.2), 0px -2px 5px rgb(0, 0, 0, 0.2);
 }
 
+.List-div-colum-style {
+	width: 50%;
+}
+
 .List-header {
 	width: 100%;
 	margin: 1rem 0;
@@ -101,7 +105,7 @@
 	border: none;
 	outline: none;
 	cursor: pointer;
-	font-size: 12px;
+	font-size: 18px;
 	position: relative;
 	transition: color 1s;
 	color: rgb(117, 112, 112);

@@ -1,4 +1,5 @@
 import React from 'react';
+import ThemeButton from '../ThemeButton';
 import './style.css';
 export default function Header(props) {
 	const {
@@ -26,12 +27,13 @@ export default function Header(props) {
 					>
 						<i className='fas fa-bars'></i>
 					</button>
-					<button
+					<ThemeButton methods={{ handleChangeTheme }} />
+					{/* <button
 						onClick={handleChangeTheme}
 						className='header-change-theme-button'
 					>
 						<i className='fas fa-moon'></i>
-					</button>
+					</button> */}
 				</div>
 			</nav>
 		</>

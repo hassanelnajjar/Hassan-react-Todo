@@ -3,7 +3,7 @@
 	left: 0;
 	padding-top: 100px;
 	width: 100%;
-	height: 70vh;
+	height: 80vh;
 	display: flex;
 	overflow: hidden;
 }
@@ -21,7 +21,6 @@
 }
 
 .Container-Lists {
-	margin: 1rem;
 	padding: 2rem 1rem 0;
 	width: 90%;
 	height: 100%;
@@ -36,8 +35,9 @@
 
 .Container-Lists-Column {
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
+	flex-wrap: nowrap;
 }
 
 .Container-Buttons {

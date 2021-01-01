@@ -1,0 +1,42 @@
+.ThemeButton-label {
+	position: relative;
+	width: 40px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.ThemeButton-button {
+	opacity: 0;
+}
+.ThemeButton-background {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40px;
+	height: 20px;
+	cursor: pointer;
+	background-color: #fff;
+	border-radius: 40px;
+	box-shadow: 0 0 0 4px #fff;
+}
+
+.ThemeButton-span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: left 0.5s;
+	width: 20px;
+	height: 100%;
+	border-radius: 50%;
+	background-color: #000;
+}
+.ThemeButton-button:checked ~ .ThemeButton-background {
+	background-color: #000;
+	box-shadow: 0 0 0 4px #000;
+}
+
+.ThemeButton-button:checked ~ .ThemeButton-span {
+	left: 50%;
+	background-color: #fff;
+}

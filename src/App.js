@@ -4,6 +4,7 @@ import './App.css';
 import Header from './component/Header';
 import Container from './component/Container';
 import DeleteList from './component/DeleteList';
+import Footer from './component/Footer';
 export default class App extends Component {
 	state = data;
 
@@ -259,6 +260,7 @@ export default class App extends Component {
 						isDeleteAction={this.state.isDeleteAction.value}
 					/>
 				)}
+				<Footer />
 			</div>
 		);
 	}

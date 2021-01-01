@@ -6,7 +6,7 @@ export default function Container(props) {
 	const {
 		lists,
 		methods,
-		styles: { display, ...styles },
+		styles: { display, theme },
 		isDeleteAction,
 	} = props;
 	return (
@@ -28,7 +28,7 @@ export default function Container(props) {
 								tasks={list.tasks.sort((a, b) => b.id - a.id)}
 								listId={list.id}
 								methods={methods}
-								styles={styles}
+								styles={{ display, theme }}
 							/>
 						)
 				)}

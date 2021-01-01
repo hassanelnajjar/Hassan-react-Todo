@@ -1,5 +1,5 @@
 .DeleteList-Div {
-	background-color: #fff;
+	background-color: var(--delete-list-delete-message);
 	top: 30%;
 	left: 30%;
 	position: absolute;
@@ -23,6 +23,7 @@
 
 .DeleteList-AlertText {
 	padding-bottom: 0.5rem;
+	color: var(--text-color);
 }
 .DeleteList-ListName-Span {
 	color: rgb(252, 98, 98);

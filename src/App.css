@@ -32,6 +32,9 @@
 	--text-color: var(--black-color);
 	--text-color-inverse: var(--black-color);
 	--addListButton-background-color: var(--light-gray-color);
+	--footer-linkedIn-logo-color: #0a66c2;
+	--footer-github-logo-color: #000;
+	--delete-list-delete-message: var(--white-color);
 }
 
 .AppContainer[data-theme='dark'] {
@@ -51,4 +54,7 @@
 	--text-color: var(--white-color);
 	--text-color-inverse: var(--white-color);
 	--addListButton-background-color: var(--white-color);
+	--footer-linkedIn-logo-color: #0a66c2;
+	--footer-github-logo-color: #f0f6fc;
+	--delete-list-delete-message: rgb(52, 53, 57);
 }

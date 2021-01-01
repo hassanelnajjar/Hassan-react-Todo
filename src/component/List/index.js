@@ -18,7 +18,7 @@ export default class List extends Component {
 	};
 	render() {
 		const {
-			styles: { theme },
+			styles: { theme, display },
 			listName,
 			listId,
 			tasks,
@@ -28,7 +28,10 @@ export default class List extends Component {
 			backgroundColor: this.state.color.random || this.state.color[theme],
 		};
 		return (
-			<div className='List-div' style={backgroundStyle}>
+			<div
+				className={display ? 'List-div' : 'List-div List-div-colum-style'}
+				style={backgroundStyle}
+			>
 				<div className='List-header'>
 					<div className='List-AddTask-Button-Div'>
 						<span className='List-plus-symbol'>
