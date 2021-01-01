@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import data from './Utils/data';
+import data from './utils/data';
 import './App.css';
-import Header from './Component/Header';
-import Container from './Component/Container';
+import Header from './component/Header';
+import Container from './component/Container';
+import DeleteList from './component/DeleteList';
 export default class App extends Component {
 	state = data;
 
@@ -42,11 +43,31 @@ export default class App extends Component {
 			return value === '' ? data : foundTasks; // edit in local storage or database
 		});
 	};
+	handleDeleteListAfterConfirm = () => {
+		this.setState((prevState) => {
+			const { listId } = prevState.isDeleteAction.payload;
+			return {
+				lists: prevState.lists.filter((list) => list.id !== listId),
+				isDeleteAction: { value: false, payload: {} },
+			};
+		});
+	};
+
+	handleCancelButton = () => {
+		this.setState(() => {
+			return {
+				isDeleteAction: { value: false, payload: {} },
+			};
+		});
+	};
+
 	handleDeleteList = (listId) => {
-		this.setState((prevState) => ({
-			lists: prevState.lists.filter((list) => list.id !== listId),
+		console.log('delete list');
+		this.setState(() => ({
+			isDeleteAction: { value: true, payload: { listId } },
 		}));
 	};
+
 	handleInputTask = (taskId, listId, e) => {
 		const {
 			target: { value },
@@ -191,15 +212,36 @@ export default class App extends Component {
 			};
 		});
 	};
+
+	handleChangeTheme = () => {
+		this.setState((prevState) => ({
+			theme: prevState.theme === 'dark' ? 'light' : 'dark',
+		}));
+	};
 	render() {
 		return (
-			<>
+			<div className='AppContainer' data-theme={this.state.theme}>
 				<Header
 					methods={{
 						handleSearch: this.handleSearch,
 						handleChangeDisplay: this.handleChangeDisplay,
+						handleChangeTheme: this.handleChangeTheme,
 					}}
 				/>
+
+				{this.state.isDeleteAction.value ? (
+					<DeleteList
+						listName={
+							this.state.lists.filter(
+								(list) => list.id === this.state.isDeleteAction.payload.listId
+							)[0].name
+						}
+						methods={{
+							handleCancelButton: this.handleCancelButton,
+							handleDeleteListAfterConfirm: this.handleDeleteListAfterConfirm,
+						}}
+					/>
+				) : null}
 				{this.state.lists.length && (
 					<Container
 						lists={this.state.lists.sort((a, b) => a.id - b.id)}
@@ -213,10 +255,11 @@ export default class App extends Component {
 							handleAddTask: this.handleAddTask,
 							handleAddList: this.handleAddList,
 						}}
-						styles={this.state.display}
+						styles={{ display: this.state.display, theme: this.state.theme }}
+						isDeleteAction={this.state.isDeleteAction.value}
 					/>
 				)}
-			</>
+			</div>
 		);
 	}
 }

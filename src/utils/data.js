@@ -1,4 +1,5 @@
 const data = {
+	isDeleteAction: { value: false, payload: {} },
 	display: true,
 	theme: 'dark',
 	lists: [

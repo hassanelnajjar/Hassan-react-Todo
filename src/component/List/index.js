@@ -4,25 +4,31 @@ import AddTask from '../AddTask';
 import './style.css';
 export default class List extends Component {
 	state = {
-		color: '#fff',
+		color: {
+			light: '#fff',
+			dark: 'rgb(41, 42, 47)',
+			random: '',
+		},
 	};
 	changeColor = () => {
 		const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-		this.setState(() => ({ color: `#${randomColor}` }));
+		this.setState((prevState) => ({
+			color: { ...prevState.color, random: `#${randomColor}` },
+		}));
 	};
 	render() {
 		const {
+			styles: { theme },
 			listName,
 			listId,
 			tasks,
 			methods: { handleDeleteList, handleListNameUpdate, ...methods },
 		} = this.props;
-		const style = {
-			backgroundColor: this.state.color,
+		const backgroundStyle = {
+			backgroundColor: this.state.color.random || this.state.color[theme],
 		};
-
 		return (
-			<div className='List-div' style={style}>
+			<div className='List-div' style={backgroundStyle}>
 				<div className='List-header'>
 					<div className='List-AddTask-Button-Div'>
 						<span className='List-plus-symbol'>

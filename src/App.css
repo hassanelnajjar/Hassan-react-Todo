@@ -2,10 +2,53 @@
 * {
 	padding: 0;
 	margin: 0;
-}
-body {
-	--main-theme-color: black;
-	--main-gray-color: rgb(241, 243, 244);
 	font-family: Poppins sans-serif;
-	background-color: rgb(246, 248, 249);
+	--gray-color: rgb(241, 243, 244);
+	--light-white-color: rgb(255, 255, 255, 0.05);
+	--white-color: #fff;
+	--black-color: #000;
+	--dark-color: rgb(31, 32, 36);
+	--light-gray-color: rgb(229, 226, 226);
+}
+.AppContainer {
+	width: 100vw;
+	height: 100vh;
+}
+
+.AppContainer[data-theme='light'] {
+	background-color: var(--white-color);
+	--nav-background-color: var(--white-color);
+	--header-nav-bar-shadow: var(--dark-color);
+	--delete-list-overlay: rgb(144, 147, 148);
+	--header-user-name: var(--black-color);
+	--header-search-input: var(--gray-color);
+	--header-search-input-hover: var(--white-color);
+	--header-search-input-shadow: var(--gray-color);
+	--header-search-fa-search: gray;
+	--header-hovered-message: var(--gray-color);
+	--header-button: var(--black-color);
+	--list-background-color: var(--white-color);
+	--Task-hover: var(--gray-color);
+	--text-color: var(--black-color);
+	--text-color-inverse: var(--black-color);
+	--addListButton-background-color: var(--light-gray-color);
+}
+
+.AppContainer[data-theme='dark'] {
+	background-color: var(--dark-color);
+	--nav-background-color: var(--dark-color);
+	--header-nav-bar-shadow: var(--white-color);
+	--delete-list-overlay: var(--light-gray-color);
+	--header-user-name: var(--white-color);
+	--header-search-input: var(--light-gray-color);
+	--header-search-input-shadow: var(--dark-color);
+	--header-search-input-hover: var(--light-gray-color);
+	--header-search-fa-search: var(--white-color);
+	--header-hovered-message: var(--white-color);
+	--header-button: var(--white-color);
+	--list-background-color: rgb(41, 42, 47);
+	--Task-hover: var(--light-white-color);
+	--text-color: var(--white-color);
+	--text-color-inverse: var(--white-color);
+	--addListButton-background-color: var(--white-color);
 }

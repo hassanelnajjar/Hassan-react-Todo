@@ -1,17 +1,19 @@
 .header-nav-bar {
 	width: 100%;
-	background-color: #fff;
+	background-color: var(--nav-background-color);
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	height: 5rem;
-	box-shadow: 4px 0px 4px black;
+	box-shadow: 4px 0px 4px var(--header-nav-bar-shadow);
 	position: fixed;
 	top: 0;
 	z-index: 1000;
 }
 
 .header-user-name {
+	user-select: none;
+	color: var(--header-user-name);
 	width: fit-content;
 	text-transform: capitalize;
 	font-style: italic;
@@ -28,7 +30,7 @@
 	position: relative;
 }
 .header-search-input {
-	background-color: rgb(241, 243, 244);
+	background-color: var(--header-search-input);
 	width: 100%;
 	line-height: 3;
 	font-size: 20px;
@@ -36,12 +38,13 @@
 	border-radius: 0.75rem;
 	border: none;
 	padding-left: 2.5rem;
-	position: relaive;
+	position: relative;
 }
 
 .header-search-input:hover {
-	background-color: #fff;
-	box-shadow: 4px 4px 4px rgb(241, 243, 244), -4px -4px 4px rgb(241, 243, 244);
+	background-color: var(--header-search-input-hover);
+	box-shadow: 4px 4px 4px var(--header-search-input-shadow),
+		-4px -4px 4px var(--header-search-input-shadow);
 }
 .header-options {
 	width: 10%;
@@ -57,11 +60,12 @@
 	cursor: pointer;
 	font-size: 20px;
 	position: relative;
+	color: var(--header-button);
 }
 
 .header-change-theme-button::before {
 	content: 'Change Theme';
-	background-color: rgb(241, 243, 244);
+	background-color: var(--header-hovered-message);
 	width: fit-content;
 	letter-spacing: normal;
 	height: auto;
@@ -72,6 +76,7 @@
 	bottom: -300%;
 	left: -50%;
 	font-size: 14px;
+	color: black;
 }
 
 .header-change-theme-button:hover::before {
@@ -80,7 +85,7 @@
 
 .header-change-display-button::before {
 	content: 'Change Display';
-	background-color: rgb(241, 243, 244);
+	background-color: var(--header-hovered-message);
 	width: fit-content;
 	letter-spacing: normal;
 	height: auto;
@@ -91,6 +96,7 @@
 	bottom: -300%;
 	left: -50%;
 	font-size: 14px;
+	color: black;
 }
 
 .header-change-display-button:hover::before {
@@ -102,5 +108,14 @@
 	top: 35%;
 	left: 2%;
 	z-index: 100;
-	color: gray;
+	color: var(--header-search-fa-search);
+}
+
+@media only screen and (max-width: 600px) {
+	.header-user-name {
+		display: none;
+	}
+	.header-search-div {
+		width: 90%;
+	}
 }

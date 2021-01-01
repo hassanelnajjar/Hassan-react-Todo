@@ -1,15 +1,17 @@
 .Task-div {
 	border-radius: 1rem;
 	padding: 0.5rem;
-	background-color: white;
+	background-color: transparent;
 	width: 100%;
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: space-around;
 	align-items: center;
+	color: var(--text-color);
 }
 .Task-div:hover {
-	background-color: var(--main-gray-color);
+	background-color: var(--Task-hover);
+	color: var(--text-color-inverse);
 }
 
 .Task-text-input {
@@ -18,6 +20,9 @@
 	outline: none;
 	width: 100%;
 	padding-left: 2rem;
+	color: inherit;
+	font-size: 16px;
+	font-weight: 600;
 }
 
 .Text-input-Completed {

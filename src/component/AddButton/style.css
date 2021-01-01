@@ -7,10 +7,9 @@
 	display: block;
 	height: 50px;
 	min-width: 50px;
-
 	border-radius: 50%;
 	border: none;
-	background-color: white;
+	background-color: var(--addListButton-background-color);
 	outline: none;
 	cursor: pointer;
 }

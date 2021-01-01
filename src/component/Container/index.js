@@ -3,12 +3,20 @@ import './style.css';
 import List from '../List';
 import AddButton from '../AddButton';
 export default function Container(props) {
-	const { lists, methods, styles } = props;
+	const {
+		lists,
+		methods,
+		styles: { display, ...styles },
+		isDeleteAction,
+	} = props;
 	return (
 		<div className='Container-Div'>
 			<div
+				className={isDeleteAction ? 'Container-DeleteList-Overlay' : ''}
+			></div>
+			<div
 				className={
-					styles ? 'Container-Lists' : 'Container-Lists Container-Lists-Column'
+					display ? 'Container-Lists' : 'Container-Lists Container-Lists-Column'
 				}
 			>
 				{lists.map(
@@ -20,6 +28,7 @@ export default function Container(props) {
 								tasks={list.tasks.sort((a, b) => b.id - a.id)}
 								listId={list.id}
 								methods={methods}
+								styles={styles}
 							/>
 						)
 				)}
