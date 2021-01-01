@@ -1,6 +1,6 @@
 # ToDo App
 
-Please Visit the [Demo](https://compassionate-mirzakhani-d44da8.netlify.app/)
+Please Visit the [Demo](https://upbeat-curran-f9603c.netlify.app/)
 
 ### Team members:-
 
