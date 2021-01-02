@@ -1,7 +1,7 @@
 const data = {
 	isDeleteAction: { value: false, payload: {} },
 	display: true,
-	theme: 'dark',
+	theme: 'light',
 	lists: [
 		{
 			id: 1,

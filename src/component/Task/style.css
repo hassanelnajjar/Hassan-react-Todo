@@ -86,3 +86,12 @@
 .Task-delete-button:hover {
 	color: rgb(255, 0, 0, 0.9);
 }
+
+@media only screen and (max-width: 600px) {
+	.Task-div {
+		margin-bottom: 10px;
+	}
+	.Task-text-input {
+		font-size: 20px;
+	}
+}

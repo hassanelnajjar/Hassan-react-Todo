@@ -28,12 +28,6 @@ export default function Header(props) {
 						<i className='fas fa-bars'></i>
 					</button>
 					<ThemeButton methods={{ handleChangeTheme }} />
-					{/* <button
-						onClick={handleChangeTheme}
-						className='header-change-theme-button'
-					>
-						<i className='fas fa-moon'></i>
-					</button> */}
 				</div>
 			</nav>
 		</>

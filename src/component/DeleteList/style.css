@@ -30,7 +30,7 @@
 }
 
 .DeleteList-Buttons {
-	width: 50%;
+	width: 60%;
 	display: flex;
 	justify-content: space-between;
 }
@@ -47,4 +47,23 @@
 
 .DeleteList-Delete-Button {
 	background-color: rgba(231, 131, 131, 0.589);
+}
+.DeleteList-Cancel-Button {
+	background-color: rgba(231, 131, 131, 0.589);
+}
+
+@media only screen and (max-width: 600px) {
+	.DeleteList-Div {
+		background-color: var(--delete-list-delete-message);
+		top: 20%;
+		left: 10%;
+		width: 70vw;
+	}
+
+	.DeleteList-Delete-Button,
+	.DeleteList-Cancel-Button {
+		color: var(--text-color);
+		font-weight: 800;
+		font-size: 16px;
+	}
 }

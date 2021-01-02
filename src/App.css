@@ -35,6 +35,10 @@
 	--footer-linkedIn-logo-color: #0a66c2;
 	--footer-github-logo-color: #000;
 	--delete-list-delete-message: var(--white-color);
+	--theme-button-background: #000;
+	--theme-button-background-inverse: #fff;
+	--theme-button-ball: #000;
+	--theme-button-ball-inverse: #fff;
 }
 
 .AppContainer[data-theme='dark'] {
@@ -57,4 +61,8 @@
 	--footer-linkedIn-logo-color: #0a66c2;
 	--footer-github-logo-color: #f0f6fc;
 	--delete-list-delete-message: rgb(52, 53, 57);
+	--theme-button-background: #000;
+	--theme-button-background-inverse: #fff;
+	--theme-button-ball: #000;
+	--theme-button-ball-inverse: #fff;
 }
