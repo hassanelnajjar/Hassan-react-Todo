@@ -121,7 +121,7 @@
 
 @media only screen and (max-width: 600px) {
 	.List-div {
-		height: auto;
+		min-height: auto;
 		width: 90%;
 		margin-bottom: 15px;
 		padding: 0.5rem 0.5rem 1.5rem 0.5rem;
@@ -131,13 +131,12 @@
 		padding: 0.5rem 0;
 	}
 	.List-Tasks-Container {
-		height: auto;
 		width: 90%;
+		min-height: 10px;
 		display: flex;
+		flex-wrap: nowrap;
 		flex-direction: column;
 		align-items: center;
 		justify-content: flex-start;
-		--webkit-gap: 0.5rem;
-		gap: 0.5rem;
 	}
 }

@@ -49,17 +49,27 @@
 }
 
 @media only screen and (max-width: 600px) {
-	.Container-Div {
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: center;
-		flex-wrap: wrap;
-		padding-top: 50px;
+	.Container-Buttons {
+		order: 1;
+		height: 100px;
 	}
-	.Container-Lists {
+	.Container-Div {
+		box-sizing: border-box;
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: center;
 		flex-wrap: nowrap;
+		overflow: visible;
+		min-height: fit-content;
+	}
+
+	.Container-Lists {
+		order: 2;
+		min-height: fit-content;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		flex-wrap: nowrap;
+		overflow: visible;
 	}
 }

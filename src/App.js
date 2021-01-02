@@ -12,7 +12,9 @@ export default class App extends Component {
 		const {
 			target: { value },
 		} = event;
-		if (value.trim() === '') return;
+		// if (value.trim() === ' ') {
+		// 	return;
+		// }
 		return this.setState((prevState) => ({
 			lists: [
 				...prevState.lists.filter((list) => list.id !== listId),

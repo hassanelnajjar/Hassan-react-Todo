@@ -1,6 +1,22 @@
-#root {
-	position: relative;
+body {
 	width: 100vw;
-	max-height: 100vh;
+	min-height: fit-content;
+	overflow: auto;
+}
+#root {
+	width: 100%;
+	min-height: fit-content;
+	position: relative;
 	overflow: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+	body {
+		min-height: fit-content;
+		overflow: visible;
+	}
+	#root {
+		min-height: fit-content;
+		overflow: visible;
+	}
 }
