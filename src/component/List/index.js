@@ -2,7 +2,19 @@ import React, { useState } from 'react';
 import Task from '../Task';
 import AddTask from '../AddTask';
 import './style.css';
-export default function List(props) {
+import ProtoType from 'prop-types';
+
+const {
+	string: { isRequired: stringRequired },
+	array: { isRequired: arrayRequired },
+	number: { isRequired: numberRequired },
+	shape,
+	func: { isRequired: funcRequired },
+	bool: { isRequired: boolRequired },
+	object: { isRequired: objectRequired },
+} = ProtoType;
+
+function List(props) {
 	const {
 		styles: { theme, display },
 		listName,
@@ -71,3 +83,20 @@ export default function List(props) {
 		</div>
 	);
 }
+
+List.protoType = {
+	listName: stringRequired,
+	listId: numberRequired,
+	tasks: arrayRequired,
+	styles: shape({
+		theme: stringRequired,
+		display: boolRequired,
+	}),
+	methods: shape({
+		handleDeleteList: funcRequired,
+		handleListNameUpdate: funcRequired,
+		methods: objectRequired,
+	}),
+};
+
+export default List;

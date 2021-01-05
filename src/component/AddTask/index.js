@@ -1,6 +1,12 @@
 import React from 'react';
 import '../Task/style.css';
-export default function Task(props) {
+import ProtoType from 'prop-types';
+const {
+	shape,
+	number: { isRequired: numberRequired },
+	func: { isRequired: funcRequired },
+} = ProtoType;
+function Task(props) {
 	const {
 		methods: { handleAddTask },
 		listId,
@@ -19,3 +25,11 @@ export default function Task(props) {
 		</div>
 	);
 }
+
+Task.propTypes = {
+	listId: numberRequired,
+	methods: shape({
+		handleAddTask: funcRequired,
+	}),
+};
+export default Task;

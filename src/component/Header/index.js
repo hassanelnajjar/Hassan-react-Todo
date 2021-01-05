@@ -1,7 +1,14 @@
 import React from 'react';
 import ThemeButton from '../ThemeButton';
 import './style.css';
-export default function Header(props) {
+import ProtoType from 'prop-types';
+
+const {
+	shape,
+	func: { isRequired: funcRequired },
+} = ProtoType;
+
+function Header(props) {
 	const {
 		methods: { handleSearch, handleChangeTheme, handleChangeDisplay },
 	} = props;
@@ -33,3 +40,13 @@ export default function Header(props) {
 		</>
 	);
 }
+
+Header.protoType = {
+	methods: shape({
+		handleSearch: funcRequired,
+		handleChangeTheme: funcRequired,
+		handleChangeDisplay: funcRequired,
+	}),
+};
+
+export default Header;

@@ -1,6 +1,14 @@
 import React from 'react';
 import './style.css';
-export default function DeleteList(props) {
+import ProtoType from 'prop-types';
+
+const {
+	shape,
+	string: { isRequired: stringRequired },
+	func: { isRequired: funcRequired },
+} = ProtoType;
+
+function DeleteList(props) {
 	const {
 		listName,
 		methods: { handleCancelButton, handleDeleteListAfterConfirm },
@@ -33,3 +41,13 @@ export default function DeleteList(props) {
 		</div>
 	);
 }
+
+DeleteList.protoType = {
+	listName: stringRequired,
+	methods: shape({
+		handleCancelButton: funcRequired,
+		handleDeleteListAfterConfirm: funcRequired,
+	}),
+};
+
+export default DeleteList;

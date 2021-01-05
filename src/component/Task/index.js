@@ -1,6 +1,16 @@
 import React from 'react';
 import './style.css';
-export default function Task(props) {
+import ProtoType from 'prop-types';
+
+const {
+	string: { isRequired: stringRequired },
+	number: { isRequired: numberRequired },
+	shape,
+	func: { isRequired: funcRequired },
+	bool: { isRequired: boolRequired },
+} = ProtoType;
+
+function Task(props) {
 	const {
 		taskText,
 		taskId,
@@ -49,3 +59,18 @@ export default function Task(props) {
 		</div>
 	);
 }
+
+Task.protoType = {
+	taskText: stringRequired,
+	taskId: numberRequired,
+	listId: numberRequired,
+	isCompleted: boolRequired,
+	methods: shape({
+		handleDeleteTask: funcRequired,
+		handleInputTask: funcRequired,
+		handleCompleted: funcRequired,
+		handleUnCompleted: funcRequired,
+	}),
+};
+
+export default Task;

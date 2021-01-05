@@ -2,7 +2,17 @@ import React from 'react';
 import './style.css';
 import List from '../List';
 import AddButton from '../AddButton';
-export default function Container(props) {
+import ProtoType from 'prop-types';
+
+const {
+	array: { isRequired: arrayRequired },
+	object: { isRequired: objectRequired },
+	shape,
+	bool: { isRequired: boolRequired },
+	string: { isRequired: stringRequired },
+} = ProtoType;
+
+function Container(props) {
 	const {
 		lists,
 		methods,
@@ -40,3 +50,15 @@ export default function Container(props) {
 		</div>
 	);
 }
+
+Container.protoType = {
+	lists: arrayRequired,
+	methods: objectRequired,
+	styles: shape({
+		display: boolRequired,
+		theme: stringRequired,
+	}),
+	isDeleteAction: objectRequired,
+};
+
+export default Container;

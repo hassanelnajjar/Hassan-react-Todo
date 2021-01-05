@@ -1,7 +1,13 @@
 import React from 'react';
 import './style.css';
+import ProtoType from 'prop-types';
 
-export default function ThemeButton(props) {
+const {
+	shape,
+	func: { isRequired: funcRequired },
+} = ProtoType;
+
+function ThemeButton(props) {
 	const {
 		methods: { handleChangeTheme },
 	} = props;
@@ -19,3 +25,11 @@ export default function ThemeButton(props) {
 		</label>
 	);
 }
+
+ThemeButton.protoType = {
+	methods: shape({
+		handleChangeTheme: funcRequired,
+	}),
+};
+
+export default ThemeButton;

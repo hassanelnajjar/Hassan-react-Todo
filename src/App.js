@@ -23,7 +23,8 @@ export default function App() {
 	const [lists, setLists] = useState(data.lists);
 
 	const handleListNameUpdate = (listId, event) =>
-		setLists(updateListName(lists, listId, event));
+		setLists(updateListName(lists, listId, event.target.value));
+
 	const handleAddList = () => setLists(addList(lists));
 
 	const handleChangeTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
