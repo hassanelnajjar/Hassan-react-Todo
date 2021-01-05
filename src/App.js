@@ -5,6 +5,17 @@ import Header from './component/Header';
 import Container from './component/Container';
 import DeleteList from './component/DeleteList';
 import Footer from './component/Footer';
+import {
+	addList,
+	addTask,
+	changeTask,
+	deleteTask,
+	makeSearchForValue,
+	makeTaskComplete,
+	makeTaskUnComplete,
+	updateListName,
+} from './utils/methods';
+
 export default function App() {
 	const [isDeleteAction, setIsDeleteAction] = useState(data.isDeleteAction);
 	const [isDisplayVertical, setDisplay] = useState(data.display);
@@ -12,28 +23,12 @@ export default function App() {
 	const [lists, setLists] = useState(data.lists);
 
 	const handleListNameUpdate = (listId, event) =>
-		setLists([
-			...lists.filter((list) => list.id !== listId),
-			{
-				...lists.filter((list) => list.id === listId)[0],
-				name: event.target.value,
-			},
-		]);
+		setLists(updateListName(lists, listId, event));
+	const handleAddList = () => setLists(addList(lists));
+
+	const handleChangeTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 	const handleSearch = (event) =>
-		setLists([
-			...lists.reduce(
-				(total, list, index) => {
-					total[index] = {
-						...list,
-						tasks: list.tasks.filter((task) =>
-							task.text.includes(event.target.value)
-						),
-					};
-					return total;
-				},
-				[{}]
-			),
-		]);
+		setLists(makeSearchForValue(lists, event.target.value));
 
 	const handleDeleteListAfterConfirm = () => {
 		setLists(lists.filter((list) => list.id !== isDeleteAction.payload.listId));
@@ -47,123 +42,29 @@ export default function App() {
 		setIsDeleteAction({ value: true, payload: { listId } });
 
 	const handleInputTask = (taskId, listId, e) => {
-		const {
-			target: { value },
-		} = e;
-		if (value.trim() === '') return;
+		if (e.target.value.trim() === '') return;
 		e.preventDefault();
-		setLists([
-			...lists.filter((list) => list.id !== listId),
-			{
-				...lists.filter((list) => list.id === listId)[0],
-				tasks: [
-					...lists
-						.filter((list) => list.id === listId)[0]
-						.tasks.filter((task) => task.id !== taskId),
-					{
-						...lists
-							.filter((list) => list.id === listId)[0]
-							.tasks.filter((task) => task.id === taskId)[0],
-						text: value,
-					},
-				],
-			},
-		]);
+		setLists(changeTask(lists, taskId, listId, e.target.value));
 	};
 	const handleChangeDisplay = () => setDisplay(!isDisplayVertical);
 
 	const handleDeleteTask = (taskId, listId, event) => {
 		event.preventDefault();
-		setLists([
-			...lists.filter((list) => list.id !== listId),
-			{
-				...lists.filter((list) => list.id === listId)[0],
-				tasks: lists
-					.filter((list) => list.id === listId)[0]
-					.tasks.filter((task) => task.id !== taskId),
-			},
-		]);
+		setLists(deleteTask(lists, taskId, listId));
 	};
 
 	const handleCompleted = (taskId, listId) =>
-		setLists([
-			...lists.filter((list) => list.id !== listId),
-			{
-				...lists.filter((list) => list.id === listId)[0],
-				tasks: [
-					...lists
-						.filter((list) => list.id === listId)[0]
-						.tasks.filter((task) => task.id !== taskId),
-					{
-						...lists
-							.filter((list) => list.id === listId)[0]
-							.tasks.filter((task) => task.id === taskId)[0],
-						completed: true,
-					},
-				],
-			},
-		]);
+		setLists(makeTaskComplete(lists, taskId, listId));
 
 	const handleUnCompleted = (taskId, listId) =>
-		setLists([
-			...lists.filter((list) => list.id !== listId),
-			{
-				...lists.filter((list) => list.id === listId)[0],
-				tasks: [
-					...lists
-						.filter((list) => list.id === listId)[0]
-						.tasks.filter((task) => task.id !== taskId),
-					{
-						...lists
-							.filter((list) => list.id === listId)[0]
-							.tasks.filter((task) => task.id === taskId)[0],
-						completed: false,
-					},
-				],
-			},
-		]);
+		setLists(makeTaskUnComplete(lists, taskId, listId));
 
 	const handleAddTask = (listId, event) => {
 		if (event.key !== 'Enter') return;
-		const {
-			target: { value },
-		} = event;
-		if (value.trim() === '') return;
+		if (event.target.value.trim() === '') return;
 
-		const currentList = lists.filter((list) => list.id === listId)[0];
-		const currentMaxId = currentList.tasks.reduce(
-			(total, task) => (total > task.id ? total : task.id),
-			-Infinity
-		);
-		const newTask = {
-			id: currentMaxId + 1,
-			completed: false,
-			date: '31-12-2020', // default
-			text: value,
-		};
-		const newList = {
-			...currentList,
-			tasks: [...currentList.tasks, newTask],
-		};
-
-		return setLists([...lists.filter((list) => list.id !== listId), newList]);
+		return setLists(addTask(lists, listId, event.target.value));
 	};
-
-	const handleAddList = () => {
-		const currentMaxId = lists.reduce(
-			(total, task) => (total > task.id ? total : task.id),
-			-Infinity
-		);
-		const newList = {
-			id: currentMaxId + 1,
-			name: `listName${currentMaxId + 1}`,
-			tasks: [],
-			color: 'listColor',
-		};
-		return setLists([...lists, newList]);
-	};
-
-	const handleChangeTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
 	return (
 		<div className='AppContainer' data-theme={theme}>
