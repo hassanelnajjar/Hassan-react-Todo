@@ -10,7 +10,7 @@ export default function DeleteList(props) {
 			<div className='DeleteList-AlertText-Div'>
 				<p className='DeleteList-AlertText'>
 					Do you Want to delete{' '}
-					<span class='DeleteList-ListName-Span'>{listName}</span> list ?
+					<span className='DeleteList-ListName-Span'>{listName}</span> list ?
 				</p>
 				<p className='DeleteList-AlertText'>
 					All tasks in it will also be deleted

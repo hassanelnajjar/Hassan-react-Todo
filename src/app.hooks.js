@@ -35,10 +35,10 @@ export default function App() {
 			),
 		]);
 
-	const handleDeleteListAfterConfirm = () => {
-		setLists(lists.filter((list) => list.id !== isDeleteAction.payload.listId));
-		setIsDeleteAction({ value: false, payload: {} });
-	};
+	const handleDeleteListAfterConfirm = () => (
+		setLists(lists.filter((list) => list.id !== isDeleteAction.payload)),
+		setIsDeleteAction({ value: false, payload: {} })
+	);
 
 	const handleCancelButton = () =>
 		setIsDeleteAction({ value: false, payload: {} });
@@ -72,8 +72,8 @@ export default function App() {
 	};
 	const handleChangeDisplay = () => setDisplay(!isDisplayVertical);
 
-	const handleDeleteTask = (taskId, listId, event) => {
-		event.preventDefault();
+	const handleDeleteTask = (taskId, listId, event) => (
+		event.preventDefault(),
 		setLists([
 			...lists.filter((list) => list.id !== listId),
 			{
@@ -82,8 +82,8 @@ export default function App() {
 					.filter((list) => list.id === listId)[0]
 					.tasks.filter((task) => task.id !== taskId),
 			},
-		]);
-	};
+		])
+	);
 
 	const handleCompleted = (taskId, listId) =>
 		setLists([
